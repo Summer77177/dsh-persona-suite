@@ -1,0 +1,12 @@
+# dsh-persona-card 的 profile 层补丁（dsh.bundle.patch 指向本文件）
+#
+# 本文件插入**一条** loader 条目：宿主半身（lib/index.js）。
+#   · 宿主半身负责：读写人设文件、把「人设段」注册进 systemPrompt、提供 /api/dsh-persona-card/* 路由。
+#   · 浏览器半身（lib/client.js）由宿主扫描 package.json 的 dsh.client 自动登记，无需在这里插入。
+#   · entry 名必须写**本包内的相对路径**，不能写裸包名：裸名要求 profile/node_modules 顶层
+#     真有一个同名包，走 link: 或市场安装时会 MODULE_NOT_FOUND（whale-persona 的 patch 里
+#     记着这个坑，CLI 0.1.6-alpha.2 实测过整个插件树 failed to load）。
+# 回退：删掉下面这条 insert，或在插件管理里停用本包。
+- insert:
+    - id: dsh-persona-card
+      name: './lib/index.js'

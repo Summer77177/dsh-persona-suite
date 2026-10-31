@@ -1,0 +1,4 @@
+- insert:
+    - id: humanlike
+      name: 'dsh-humanlike'
+      config: {}
