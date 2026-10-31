@@ -1,0 +1,30 @@
+# 依赖
+node_modules/
+
+# 测试时产生的临时账本（humanlike 的冒烟测试会在这里落盘）
+.tmp-ledger/
+.tmp-ledger-*/
+*.tmp-ledger/
+
+# 运行日志
+*.log
+
+# persona-card 的自测会碰 ~/.dsh 下的状态文件，但如果你把 HOME 指到仓库里，
+# 这些文件可能出现在这里 —— 它们是运行状态，不该进仓库。
+.dsh/
+persona-card.yml
+persona-card.md
+persona-card-log.txt
+persona-card-debug.json
+
+# 打包产物
+*.tgz
+*.zip
+release/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
